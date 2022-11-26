@@ -1,17 +1,23 @@
 package entity;
 
-import javax.persistence.*;
+import org.hibernate.annotations.NamedQuery;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Date;
 import java.sql.Time;
 
 @Entity
+@NamedQuery(name = "Empschedule.getAll", query = "Select e from Empschedule e")
+
 public class Empschedule {
     private int empId;
     private Date shiftDate;
     private String room;
     private Time startTime;
     private Time endTime;
-    private Employee employeeByEmpId;
 
     @Id
     @Column(name = "empID")
@@ -87,15 +93,5 @@ public class Empschedule {
         result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
         result = 31 * result + (endTime != null ? endTime.hashCode() : 0);
         return result;
-    }
-
-    @OneToOne
-    @JoinColumn(name = "empID", referencedColumnName = "empID", nullable = false)
-    public Employee getEmployeeByEmpId() {
-        return employeeByEmpId;
-    }
-
-    public void setEmployeeByEmpId(Employee employeeByEmpId) {
-        this.employeeByEmpId = employeeByEmpId;
     }
 }

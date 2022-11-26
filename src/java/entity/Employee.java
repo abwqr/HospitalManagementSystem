@@ -1,11 +1,16 @@
 package entity;
 
+import org.hibernate.annotations.NamedQuery;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
+@NamedQuery(name = "Employee.login", query = "Select e from Employee e where e.empId = ?1 and e.password = ?2")
+@NamedQuery(name = "Employee.getAllDoctors", query = "Select e from Employee e where e.type not like ?1 and e.type not like ?2 ")
+
 public class Employee {
     private int empId;
     private String firstName;
@@ -87,5 +92,16 @@ public class Employee {
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId=" + empId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", type='" + type + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

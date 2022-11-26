@@ -8,7 +8,6 @@ public class Patient {
     private String patientPhoneNumber;
     private String patientFirstName;
     private String patientLastName;
-    private Appointment appointmentByPatientCnic;
 
     @Id
     @Column(name = "patientCNIC")
@@ -77,12 +76,6 @@ public class Patient {
         return result;
     }
 
-    @OneToOne(mappedBy = "patientByPatientCnic")
-    public Appointment getAppointmentByPatientCnic() {
-        return appointmentByPatientCnic;
-    }
 
-    public void setAppointmentByPatientCnic(Appointment appointmentByPatientCnic) {
-        this.appointmentByPatientCnic = appointmentByPatientCnic;
-    }
+
 }

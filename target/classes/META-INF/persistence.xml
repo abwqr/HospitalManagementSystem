@@ -7,8 +7,14 @@
 
         <class>entity.Students</class>
         <class>entity.User</class>
+        <class>entity.Appointment</class>
+        <class>entity.Bed</class>
+        <class>entity.Employee</class>
+        <class>entity.Employeerecord</class>
+        <class>entity.Empschedule</class>
+        <class>entity.Patient</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/testdb"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hms"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.connection.user" value="root"/>
             <property name="hibernate.connection.password" value="abdullah"/>

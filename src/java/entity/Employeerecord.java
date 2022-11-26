@@ -1,15 +1,18 @@
 package entity;
+import org.hibernate.annotations.NamedQuery;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
+@NamedQuery(name = "EmployeeRecord.getAll", query = "Select e from Employeerecord e")
+@NamedQuery(name = "EmployeeRecord.getEmpRec", query = "Select e from Employeerecord e where empId = ?1")
+
+
 public class Employeerecord {
     private int empId;
     private Date hireDate;
     private double salary;
-    private String address;
-    private String employmentStatus;
     private String phoneNumber;
     private Employee employeeByEmpId;
 
@@ -44,26 +47,6 @@ public class Employeerecord {
     }
 
     @Basic
-    @Column(name = "address")
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Basic
-    @Column(name = "employmentStatus")
-    public String getEmploymentStatus() {
-        return employmentStatus;
-    }
-
-    public void setEmploymentStatus(String employmentStatus) {
-        this.employmentStatus = employmentStatus;
-    }
-
-    @Basic
     @Column(name = "phoneNumber")
     public String getPhoneNumber() {
         return phoneNumber;
@@ -83,9 +66,6 @@ public class Employeerecord {
         if (empId != that.empId) return false;
         if (Double.compare(that.salary, salary) != 0) return false;
         if (hireDate != null ? !hireDate.equals(that.hireDate) : that.hireDate != null) return false;
-        if (address != null ? !address.equals(that.address) : that.address != null) return false;
-        if (employmentStatus != null ? !employmentStatus.equals(that.employmentStatus) : that.employmentStatus != null)
-            return false;
         if (phoneNumber != null ? !phoneNumber.equals(that.phoneNumber) : that.phoneNumber != null) return false;
 
         return true;
@@ -99,8 +79,6 @@ public class Employeerecord {
         result = 31 * result + (hireDate != null ? hireDate.hashCode() : 0);
         temp = Double.doubleToLongBits(salary);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (employmentStatus != null ? employmentStatus.hashCode() : 0);
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         return result;
     }
@@ -113,5 +91,16 @@ public class Employeerecord {
 
     public void setEmployeeByEmpId(Employee employeeByEmpId) {
         this.employeeByEmpId = employeeByEmpId;
+    }
+
+    @Override
+    public String toString() {
+        return "Employeerecord{" +
+                "empId=" + empId +
+                ", hireDate=" + hireDate +
+                ", salary=" + salary +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", employeeByEmpId=" + employeeByEmpId +
+                '}';
     }
 }
