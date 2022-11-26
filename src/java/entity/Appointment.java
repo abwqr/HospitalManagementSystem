@@ -1,5 +1,7 @@
 package entity;
 
+import org.hibernate.annotations.NamedQuery;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,14 +10,31 @@ import java.sql.Date;
 import java.sql.Time;
 
 @Entity
+@NamedQuery(name = "Appointment.getAllAppointment", query = "Select a from Appointment a")
+@NamedQuery(name = "Appointment.getAppointment", query = "Select e from Appointment e where appointmentId = ?1")
+
 public class Appointment {
+
+    private int appointmentId;
     private int patientCnic;
+    private int doctorId;
     private Date appointmentDate;
     private Time appointmentTime;
     private String status;
     private int feeAmount;
 
+
     @Id
+    @Column(name = "appointmentID")
+    public int getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(int appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
+    @Basic
     @Column(name = "patientCNIC")
     public int getPatientCnic() {
         return patientCnic;
@@ -24,6 +43,19 @@ public class Appointment {
     public void setPatientCnic(int patientCnic) {
         this.patientCnic = patientCnic;
     }
+
+
+    @Basic
+    @Column(name = "doctorId")
+    public int getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+
+
 
     @Basic
     @Column(name = "appointmentDate")
@@ -72,7 +104,7 @@ public class Appointment {
 
         Appointment that = (Appointment) o;
 
-        if (patientCnic != that.patientCnic) return false;
+        if (appointmentId != that.appointmentId) return false;
         if (feeAmount != that.feeAmount) return false;
         if (appointmentDate != null ? !appointmentDate.equals(that.appointmentDate) : that.appointmentDate != null)
             return false;
@@ -85,7 +117,7 @@ public class Appointment {
 
     @Override
     public int hashCode() {
-        int result = patientCnic;
+        int result = appointmentId;
         result = 31 * result + (appointmentDate != null ? appointmentDate.hashCode() : 0);
         result = 31 * result + (appointmentTime != null ? appointmentTime.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);

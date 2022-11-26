@@ -1,6 +1,7 @@
 package Main;
 import java.io.IOException;
 
+import entity.Appointment;
 import entity.Employee;
 import entity.Employeerecord;
 import javafx.event.ActionEvent;
@@ -28,6 +29,7 @@ public class Common {
         if(obj != null) {
             String empRec = "Employeerecord";
             String emp = "Employee";
+            String app = "Appointment";
             String name = obj.getClass().getSimpleName();
             if (name.equals(empRec)) {
                 UpdateEmployeeRecordView empRecUpdateController = loader.getController();
@@ -38,8 +40,16 @@ public class Common {
                 NewEmployeeRecordView empRecNewController = loader.getController();
                 empRecNewController.initialize((Employee) obj);
             }
+
+            else if (name.equals(app)) {
+                UpdateAppointmentView updateAppointmentController = loader.getController();
+                updateAppointmentController.initialize((Appointment) obj);
+            }
+
+
+
         }
-//        Parent root = FXMLLoader.load(getClass().getResource(page));
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 

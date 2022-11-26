@@ -53,5 +53,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: com.mysql:mysql-connector-j:8.0.31" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="fontawesomefx-fontawesome-4.7.0-9.1.21" level="project" />
+    <orderEntry type="library" name="fontawesomefx-commons-9.1.21" level="project" />
   </component>
 </module>

@@ -34,12 +34,10 @@ public class ManageEmpRecordController {
 
 
     public static void updateEmployeeRecord(int id, int salary, int phoneNum) {
-
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-//        "UPDATE employeerecord SET salary = ?1, phonenumber = ?2 WHERE empid = ?3;"
         Query query = entityManager.createNativeQuery("UPDATE employeerecord SET salary = ?1, phonenumber = ?2 where empID = ?3");
         query.setParameter(1, salary);
         query.setParameter(2, phoneNum);
@@ -50,9 +48,6 @@ public class ManageEmpRecordController {
         entityManager.close();
         entityManagerFactory.close();
     }
-
-
-
 
     public static List<Employeerecord> getAllEmpRec(){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");

@@ -1,5 +1,7 @@
 package entity;
 
+import org.hibernate.annotations.NamedQuery;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,12 +9,16 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 @Entity
+@NamedQuery(name = "Bed.getAll", query = "Select e from Bed e")
+
 public class Bed {
     private int bedId;
     private Date startDate;
     private Date endDate;
     private String status;
     private Integer feeAmount;
+    private Integer patientCnic;
+
 
     @Id
     @Column(name = "bedId")
@@ -23,6 +29,17 @@ public class Bed {
     public void setBedId(int bedId) {
         this.bedId = bedId;
     }
+
+    @Basic
+    @Column(name = "patientCNIC")
+    public Integer getPatientCnic() {
+        return patientCnic;
+    }
+
+    public void setPatientCnic(Integer patientCnic) {
+        this.patientCnic = patientCnic;
+    }
+
 
     @Basic
     @Column(name = "startDate")
@@ -88,5 +105,16 @@ public class Bed {
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (feeAmount != null ? feeAmount.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Bed{" +
+                "bedId=" + bedId +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", status='" + status + '\'' +
+                ", feeAmount=" + feeAmount +
+                '}';
     }
 }

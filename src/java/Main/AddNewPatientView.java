@@ -4,7 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Controller.ManageEmployeeController;
+import Controller.ManagePatientController;
 import entity.Employee;
+import entity.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -38,9 +40,12 @@ public class AddNewPatientView {
 
         int cnic = Integer.parseInt(id);
         System.out.println(firstName + " " + lastName + " " + cnic + " " + phNum);
-
-//        ManageEmployeeController.addEmployee(id, firstName, lastName, type, pass);
-
+        Patient patient = new Patient();
+        patient.setPatientCnic(cnic);
+        patient.setPatientFirstName(firstName);
+        patient.setPatientLastName(lastName);
+        patient.setPatientPhoneNumber(phNum);
+        ManagePatientController.addPatient(cnic, firstName, lastName, phNum);
     }
 
     @FXML
@@ -50,10 +55,10 @@ public class AddNewPatientView {
 
     @FXML
     void initialize() {
-        assert cnic != null : "fx:id=\"cnic\" was not injected: check your FXML file 'AddPateint.fxml'.";
-        assert fname != null : "fx:id=\"fname\" was not injected: check your FXML file 'AddPateint.fxml'.";
-        assert lname != null : "fx:id=\"lname\" was not injected: check your FXML file 'AddPateint.fxml'.";
-        assert phoneNum != null : "fx:id=\"phoneNum\" was not injected: check your FXML file 'AddPateint.fxml'.";
+        assert cnic != null : "fx:id=\"cnic\" was not injected: check your FXML file 'AddNewPatient.fxml'.";
+        assert fname != null : "fx:id=\"fname\" was not injected: check your FXML file 'AddNewPatient.fxml'.";
+        assert lname != null : "fx:id=\"lname\" was not injected: check your FXML file 'AddNewPatient.fxml'.";
+        assert phoneNum != null : "fx:id=\"phoneNum\" was not injected: check your FXML file 'AddNewPatient.fxml'.";
 
     }
 
