@@ -2,6 +2,7 @@ package Main;
 import java.io.IOException;
 
 import entity.Appointment;
+import entity.Bed;
 import entity.Employee;
 import entity.Employeerecord;
 import javafx.event.ActionEvent;
@@ -30,6 +31,7 @@ public class Common {
             String empRec = "Employeerecord";
             String emp = "Employee";
             String app = "Appointment";
+            String bed = "Bed";
             String name = obj.getClass().getSimpleName();
             if (name.equals(empRec)) {
                 UpdateEmployeeRecordView empRecUpdateController = loader.getController();
@@ -46,6 +48,10 @@ public class Common {
                 updateAppointmentController.initialize((Appointment) obj);
             }
 
+            else if (name.equals(bed)) {
+                UpdateBedsView updateBedController = loader.getController();
+                updateBedController.initialize((Bed) obj);
+            }
 
 
         }

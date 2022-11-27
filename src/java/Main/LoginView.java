@@ -66,6 +66,10 @@ public class LoginView {
         System.out.println(emp.getType().getClass().getName());
         String admin = "admin";
         String receptionist = "receptionist";
+        String dermatologists = "dermatologists";
+        String surgeon = "surgeon";
+        String cardiologists = "cardiologists";
+
         if(admin.equals(emp.getType())){
             System.out.println("admin");
             Main.id = emp.getEmpId();
@@ -80,6 +84,12 @@ public class LoginView {
             common.changeScene(event, "ReceptionistLanding.fxml", null);
         }
 
+        else if(dermatologists.equals(emp.getType()) || cardiologists.equals(emp.getType()) || surgeon.equals(emp.getType())){
+            System.out.println("doctor");
+            Main.id = emp.getEmpId();
+            Common common = new Common();
+            common.changeScene(event, "DoctorLanding.fxml", null);
+        }
     }
 
     public void switchToScene2(String page) throws IOException {

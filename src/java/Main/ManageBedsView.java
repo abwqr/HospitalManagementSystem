@@ -1,11 +1,12 @@
 package Main;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import Controller.BedController;
+import Controller.ManageBedsController;
 import Controller.ManageEmpRecordController;
 import entity.Bed;
 import entity.Employeerecord;
@@ -54,12 +55,26 @@ public class ManageBedsView {
 
     @FXML
     void newBed(ActionEvent event) {
-
+        int newId = ManageBedsController.getLastBedID() + 1;
+        ManageBedsController.addBed(newId);
+        initialize();
     }
 
     @FXML
-    void updateBed(ActionEvent event) {
+    void deleteBed(ActionEvent event) {
+        int newId = ManageBedsController.getLastBedID();
+        ManageBedsController.deleteBed(newId);
+        initialize();
+    }
 
+    @FXML
+    void updateBed(ActionEvent event) throws IOException {
+        Bed bed = tableView.getSelectionModel().getSelectedItem();
+        String val = String.valueOf(bed.getBedId());
+
+        Bed obj = ManageBedsController.getBed(bed.getBedId());
+        Common common = new Common();
+        common.changeScene(event, "UpdateBed.fxml", obj);
     }
 
     @FXML
@@ -73,7 +88,7 @@ public class ManageBedsView {
         assert status != null : "fx:id=\"status\" was not injected: check your FXML file 'ManageBeds.fxml'.";
         assert tableView != null : "fx:id=\"tableView\" was not injected: check your FXML file 'ManageBeds.fxml'.";
 
-        List<Bed> beds = BedController.getBeds();
+        List<Bed> beds = ManageBedsController.getBeds();
 
         appId.setCellValueFactory(new PropertyValueFactory<Bed, Integer>("bedId"));
         amount.setCellValueFactory(new PropertyValueFactory<Bed, Integer>("feeAmount"));

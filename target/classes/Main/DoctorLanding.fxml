@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.DoctorLandingView">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="351.0" style="-fx-background-color: #ff9966;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" layoutX="33.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hospital Managment System">
+               <font>
+                  <Font name="Arial Bold" size="21.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="130.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A Product by:">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="36.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctor Panel">
+               <font>
+                  <Font name="Arial Bold" size="46.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="65.0" fitWidth="67.0" layoutX="143.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/clinic-128.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="89.0" fitWidth="164.0" layoutX="96.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/metax.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="500.0" prefWidth="349.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="34.0" layoutY="118.0" mnemonicParsing="false" onAction="#viewSchedule" style="-fx-border-radius: 20px; -fx-background-color: #ff9966; -fx-font-weight: bold; -fx-pref-height: 100px; -fx-pref-width: 280px;" text="View Schedule" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Button>
+            <Button layoutX="34.0" layoutY="257.0" mnemonicParsing="false" onAction="#viewAppointments" style="-fx-border-radius: 20px; -fx-background-color: #ff9966; -fx-font-weight: bold; -fx-pref-height: 100px; -fx-pref-width: 280px;" text="View Appointments" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

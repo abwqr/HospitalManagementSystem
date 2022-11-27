@@ -32,11 +32,6 @@ public class ManageEmployeeController {
     }
 
 
-
-
-
-
-
     public static int getLastEmpID() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");

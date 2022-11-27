@@ -36,12 +36,11 @@
                         <TableView fx:id="tableView" layoutX="1.0" layoutY="1.0" prefHeight="270.0" prefWidth="631.0">
                           <columns>
                               <TableColumn fx:id="appId" minWidth="3.999969482421875" prefWidth="67.0" text="ID" />
-                              <TableColumn fx:id="cnic" minWidth="3.999969482421875" prefWidth="119.0" text="Patient CNIC" />
-                            <TableColumn fx:id="sdate" prefWidth="96.0" text="Start Date" />
-                            <TableColumn fx:id="eDate" minWidth="3.999969482421875" prefWidth="85.0" text="End Date" />
-                              <TableColumn fx:id="room" prefWidth="85.0" text="Room" />
-                              <TableColumn fx:id="status" maxWidth="96.0" minWidth="0.0" prefWidth="77.0" text="Status" />
-                              <TableColumn fx:id="amount" maxWidth="217.0" prefWidth="101.0" text="Fee" />
+                              <TableColumn fx:id="cnic" minWidth="3.999969482421875" prefWidth="125.0" text="Patient CNIC" />
+                            <TableColumn fx:id="sdate" prefWidth="109.0" text="Start Date" />
+                            <TableColumn fx:id="eDate" minWidth="3.999969482421875" prefWidth="105.0" text="End Date" />
+                              <TableColumn fx:id="status" maxWidth="111.0" minWidth="0.0" prefWidth="95.0" text="Status" />
+                              <TableColumn fx:id="amount" maxWidth="217.0" prefWidth="128.0" text="Fee" />
                           </columns>
                         </TableView>
                      </children>
@@ -55,6 +54,7 @@
             </Text>
             <Button layoutX="197.0" layoutY="369.0" mnemonicParsing="false" onAction="#newBed" text="add new" />
             <Button layoutX="368.0" layoutY="369.0" mnemonicParsing="false" onAction="#updateBed" text="edit" />
+            <Button layoutX="291.0" layoutY="369.0" mnemonicParsing="false" onAction="#deleteBed" text="delete" />
          </children>
       </AnchorPane>
    </right>

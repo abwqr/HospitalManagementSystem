@@ -7,14 +7,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @NamedQuery(name = "Bed.getAll", query = "Select e from Bed e")
+@NamedQuery(name = "Bed.getBed", query = "Select e from Bed e where bedId = ?1")
 
 public class Bed {
     private int bedId;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String status;
     private Integer feeAmount;
     private Integer patientCnic;
@@ -43,21 +45,21 @@ public class Bed {
 
     @Basic
     @Column(name = "startDate")
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
     @Basic
     @Column(name = "endDate")
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
