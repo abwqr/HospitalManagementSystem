@@ -66,7 +66,8 @@ public class ManageAppointmentsView {
 
     @FXML
     void handleBack(ActionEvent event) throws IOException {
-
+        Common common = new Common();
+        common.changeScene(event, "ReceptionistLanding.fxml", null);
     }
 
     @FXML

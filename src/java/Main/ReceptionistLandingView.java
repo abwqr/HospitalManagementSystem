@@ -15,13 +15,15 @@ public class ReceptionistLandingView {
     private URL location;
 
     @FXML
-    void handleAppointments(ActionEvent event) {
-
+    void handleAppointments(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "ManageAppointments.fxml", null);
     }
 
     @FXML
-    void handleBeds(ActionEvent event) {
-
+    void handleBeds(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "ManageBeds.fxml", null);
     }
 
     @FXML
@@ -29,6 +31,13 @@ public class ReceptionistLandingView {
         Common common = new Common();
         common.changeScene(event, "AddNewPatient.fxml", null);
     }
+
+    @FXML
+    void logout(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "Login.fxml", null);
+    }
+
 
     @FXML
     void initialize() {

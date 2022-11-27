@@ -49,8 +49,9 @@ public class ManageBedsView {
 
 
     @FXML
-    void handleBack(ActionEvent event) {
-
+    void handleBack(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "ReceptionistLanding.fxml", null);
     }
 
     @FXML

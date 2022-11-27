@@ -30,6 +30,21 @@ public class ManageAppointmentController {
         return appointment;
     }
 
+    public static void deleteAppointment(int id){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createNativeQuery("DELETE FROM appointment WHERE doctorID = ?");
+        query.setParameter(1, id);
+
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
 
 
     public static void updateAppointment(int appId, int cnic, int docId, Date appDate, String appTime, String status, int amount) {

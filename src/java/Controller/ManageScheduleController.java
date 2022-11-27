@@ -103,6 +103,22 @@ public class ManageScheduleController {
         entityManagerFactory.close();
     }
 
+    public static void deleteSched(int id){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createNativeQuery("DELETE FROM empschedule WHERE empID = ?");
+        query.setParameter(1, id);
+
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+
 
     public static void updateSchedule(Empschedule schedule) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");

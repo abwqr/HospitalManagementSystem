@@ -2,7 +2,6 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -52,7 +51,6 @@
             <FontAwesomeIconView fill="#48b2ff" glyphName="USER" layoutX="74.0" layoutY="257.0" size="20" />
             <FontAwesomeIconView fill="#48b2ff" glyphName="KEY" layoutX="71.0" layoutY="299.0" size="20" />
             <Button layoutX="147.0" layoutY="344.0" mnemonicParsing="false" onAction="#checkLogin" text="Login" />
-            <Hyperlink layoutX="102.0" layoutY="439.0" text="Forgot Your Password?" />
             <FontAwesomeIconView fill="#48b2ff" glyphName="USERS" layoutX="153.0" layoutY="142.0" size="40.0">
                <font>
                   <Font size="15.0" />

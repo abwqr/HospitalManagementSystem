@@ -48,14 +48,9 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <Button layoutX="443.0" layoutY="380.0" mnemonicParsing="false" onAction="#addNewPatient" style="-fx-background-color: #00cc00; -fx-pref-width: 80px;" text="Save" textFill="WHITE">
+            <Button layoutX="301.0" layoutY="380.0" mnemonicParsing="false" onAction="#addNewPatient" style="-fx-background-color: #00cc00; -fx-pref-width: 80px;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="199.0" layoutY="379.0" mnemonicParsing="false" style="-fx-background-color: #ff9999; -fx-pref-width: 80px;" text="Cancel" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
             <TextField fx:id="lname" layoutX="284.0" layoutY="193.0" promptText="Enter Last Name" style="-fx-background-color: transparent; -fx-border-color: #bb99ff; -fx-border-width: 0px 0px 2px 0px;" />

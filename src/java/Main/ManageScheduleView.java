@@ -71,6 +71,13 @@ public class ManageScheduleView {
     }
 
     @FXML
+    void handleBack(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "AdminLanding.fxml", null);
+    }
+
+
+    @FXML
     public void clearSchedule(ActionEvent event)throws IOException {
         Empschedule empSched = tableView.getSelectionModel().getSelectedItem();
         System.out.println(empSched.getEmpId());

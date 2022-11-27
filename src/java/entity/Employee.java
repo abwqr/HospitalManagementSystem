@@ -10,6 +10,7 @@ import javax.persistence.Id;
 @Entity
 @NamedQuery(name = "Employee.login", query = "Select e from Employee e where e.empId = ?1 and e.password = ?2")
 @NamedQuery(name = "Employee.getAllDoctors", query = "Select e from Employee e where e.type not like ?1 and e.type not like ?2 ")
+@NamedQuery(name = "Employee.getAllEmployees", query = "Select e from Employee e where e.type not like ?1 ")
 
 public class Employee {
     private int empId;

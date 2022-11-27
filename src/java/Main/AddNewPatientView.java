@@ -1,5 +1,6 @@
 package Main;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,8 +50,9 @@ public class AddNewPatientView {
     }
 
     @FXML
-    void handleBack(ActionEvent event) {
-
+    void handleBack(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "ReceptionistLanding.fxml", null);
     }
 
     @FXML

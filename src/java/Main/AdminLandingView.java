@@ -27,7 +27,7 @@ public class AdminLandingView {
     @FXML
     void NavigateEmp(ActionEvent event) throws IOException {
         Common common = new Common();
-        common.changeScene(event, "AddNewEmployee.fxml",null);
+        common.changeScene(event, "ManageEmployee.fxml",null);
     }
 
     @FXML
@@ -38,8 +38,17 @@ public class AdminLandingView {
 
     @FXML
     void NavigateEmpSched(ActionEvent event) throws IOException {
-
+        Common common = new Common();
+        common.changeScene(event, "ManageSchedule.fxml", null);
     }
+
+
+    @FXML
+    void logout(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "Login.fxml", null);
+    }
+
 
     @FXML
     void initialize() {

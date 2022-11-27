@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.List;
 
 
 public class ManageEmployeeController {
@@ -29,6 +30,43 @@ public class ManageEmployeeController {
         entityManager.getTransaction().commit();
         entityManager.close();
         entityManagerFactory.close();
+    }
+
+    public static void deleteEmployee(int id){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createNativeQuery("DELETE FROM employee WHERE empID = ?");
+        query.setParameter(1, id);
+
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+
+    public static List<Employee> getAllEmployees(){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        TypedQuery<Employee> employee = entityManager.createNamedQuery("Employee.getAllEmployees", Employee.class);
+
+        employee.setParameter(1, "admin");
+
+
+        entityManager.getTransaction().commit();
+        List<Employee> emp = employee.getResultList();
+
+        for(Employee e : employee.getResultList())
+            System.out.println(e);
+
+        entityManager.close();
+        entityManagerFactory.close();
+        return emp;
     }
 
 

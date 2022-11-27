@@ -86,7 +86,11 @@ public class ManageEmployeeRecordView {
 
     }
 
-
+    @FXML
+    void handleBack(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "AdminLanding.fxml", null);
+    }
 
 }
 
