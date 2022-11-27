@@ -1,10 +1,7 @@
 package Main;
 import java.io.IOException;
 
-import entity.Appointment;
-import entity.Bed;
-import entity.Employee;
-import entity.Employeerecord;
+import entity.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,6 +29,7 @@ public class Common {
             String emp = "Employee";
             String app = "Appointment";
             String bed = "Bed";
+            String schedule = "Empschedule";
             String name = obj.getClass().getSimpleName();
             if (name.equals(empRec)) {
                 UpdateEmployeeRecordView empRecUpdateController = loader.getController();
@@ -53,6 +51,10 @@ public class Common {
                 updateBedController.initialize((Bed) obj);
             }
 
+            else if (name.equals(schedule)) {
+                UpdateScheduleView updateScheduleController = loader.getController();
+                updateScheduleController.initialize((Empschedule) obj);
+            }
 
         }
 

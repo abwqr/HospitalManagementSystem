@@ -12,6 +12,7 @@ import java.sql.Time;
 @Entity
 @NamedQuery(name = "Appointment.getAllAppointment", query = "Select a from Appointment a")
 @NamedQuery(name = "Appointment.getAppointment", query = "Select e from Appointment e where appointmentId = ?1")
+@NamedQuery(name = "Appointment.getAppointments", query = "Select e from Appointment e where e.doctorId = ?1")
 
 public class Appointment {
 

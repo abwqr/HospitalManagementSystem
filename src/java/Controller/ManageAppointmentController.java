@@ -3,6 +3,7 @@ package Controller;
 import entity.Appointment;
 import entity.Employee;
 import entity.Employeerecord;
+import entity.Empschedule;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -11,6 +12,24 @@ import java.util.Date;
 import java.util.List;
 
 public class ManageAppointmentController {
+
+    public static List<Appointment> getAppointments(int id){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        TypedQuery<Appointment> app = entityManager.createNamedQuery("Appointment.getAppointments", Appointment.class);
+        app.setParameter(1, id);
+
+
+        entityManager.getTransaction().commit();
+        List<Appointment> appointment = app.getResultList();
+
+        entityManager.close();
+        entityManagerFactory.close();
+        return appointment;
+    }
+
 
 
     public static void updateAppointment(int appId, int cnic, int docId, Date appDate, String appTime, String status, int amount) {

@@ -15,14 +15,15 @@ public class DoctorLandingView {
     private URL location;
 
     @FXML
-    void viewAppointments(ActionEvent event) {
-
+    void viewAppointments(ActionEvent event) throws IOException {
+        Common common = new Common();
+        common.changeScene(event, "PersonalAppointments.fxml", null);
     }
 
     @FXML
     void viewSchedule(ActionEvent event) throws IOException {
         Common common = new Common();
-        common.changeScene(event, "ViewPersonalSchedule.fxml", null);
+        common.changeScene(event, "PersonalSchedule.fxml", null);
     }
 
     @FXML

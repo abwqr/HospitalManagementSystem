@@ -79,5 +79,16 @@ public class ManageScheduleView {
     }
 
 
+    @FXML
+    public void updateSchedule(ActionEvent event) throws IOException {
+        Empschedule empschedule = tableView.getSelectionModel().getSelectedItem();
+        String val = String.valueOf(empschedule.getEmpId());
+        System.out.println(val);
+        Empschedule obj = ManageScheduleController.getSchedule(empschedule.getEmpId());
+        Common common = new Common();
+        common.changeScene(event, "UpdateSchedule.fxml", obj);
+    }
+
+
 }
 

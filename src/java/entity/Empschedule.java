@@ -8,16 +8,20 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 @Entity
 @NamedQuery(name = "Empschedule.getAll", query = "Select e from Empschedule e")
+@NamedQuery(name = "Empschedule.getSchedule", query = "Select e from Empschedule e where e.empId = ?1")
 
 public class Empschedule {
     private int empId;
-    private Date shiftDate;
+    private LocalDate shiftDate;
     private String room;
-    private Time startTime;
-    private Time endTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
     @Id
     @Column(name = "empID")
@@ -31,11 +35,11 @@ public class Empschedule {
 
     @Basic
     @Column(name = "shiftDate")
-    public Date getShiftDate() {
+    public LocalDate getShiftDate() {
         return shiftDate;
     }
 
-    public void setShiftDate(Date shiftDate) {
+    public void setShiftDate(LocalDate shiftDate) {
         this.shiftDate = shiftDate;
     }
 
@@ -51,21 +55,21 @@ public class Empschedule {
 
     @Basic
     @Column(name = "startTime")
-    public Time getStartTime() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
     @Basic
     @Column(name = "endTime")
-    public Time getEndTime() {
+    public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Time endTime) {
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 
